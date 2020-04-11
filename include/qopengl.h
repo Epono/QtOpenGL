@@ -2,10 +2,11 @@
 
 #include <QMainWindow>
 #include <QHeaderView>
-#include "ui_qopengl.h"
+#include <QTextEdit>
+#include <QListWidget>
 
-
-#include "../glwidget.h"
+#include "../include/uic/ui_qopengl.h"
+#include "../include/glwidget.h"
 
 class QOpenGL : public QMainWindow
 {
@@ -18,6 +19,10 @@ private:
 
 public:
 	QOpenGL(QWidget* parent = Q_NULLPTR);
+
+	QTextEdit* textEdit;
+	QListWidget* customerList;
+	QListWidget* paragraphsList;
 
 public slots:
 

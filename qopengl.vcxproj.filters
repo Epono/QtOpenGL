@@ -23,57 +23,66 @@
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
-    <Filter Include="Header Files\dependencies">
-      <UniqueIdentifier>{4161217d-18e1-47e1-858b-51d50b2e7b4a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\dependencies">
+    <Filter Include="Source Files\Dependencies">
       <UniqueIdentifier>{c68322c3-b48c-4490-824f-3e74cdbfa54a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Dependencies">
+      <UniqueIdentifier>{4161217d-18e1-47e1-858b-51d50b2e7b4a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="include\left.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="include\qopengl.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="glwidget.h">
+    <QtMoc Include="include\glwidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="..\LearnOpenGL\Include\imgui\ImGuiRenderer.h">
-      <Filter>Header Files\dependencies</Filter>
+    <QtMoc Include="3rd_party\imgui\ImGuiRenderer.h">
+      <Filter>Header Files\Dependencies</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\glwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\left.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\qopengl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="glwidget.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="3rd_party\glad\glad.c">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
-    <ClCompile Include="logo.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="3rd_party\imgui\imgui_widgets.cpp">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\ImGuiRenderer.cpp">
-      <Filter>Source Files\dependencies</Filter>
+    <ClCompile Include="3rd_party\imgui\ImGuiRenderer.cpp">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\QtImGui.cpp">
-      <Filter>Source Files\dependencies</Filter>
+    <ClCompile Include="3rd_party\imgui\QtImGui.cpp">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
-    <ClCompile Include="..\LearnOpenGL\Include\glad\glad.c">
-      <Filter>Source Files\dependencies</Filter>
+    <ClCompile Include="3rd_party\imgui\imgui.cpp">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui.cpp">
-      <Filter>Source Files\dependencies</Filter>
+    <ClCompile Include="3rd_party\imgui\imgui_demo.cpp">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_demo.cpp">
-      <Filter>Source Files\dependencies</Filter>
+    <ClCompile Include="3rd_party\imgui\imgui_draw.cpp">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_draw.cpp">
-      <Filter>Source Files\dependencies</Filter>
-    </ClCompile>
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_widgets.cpp">
-      <Filter>Source Files\dependencies</Filter>
+    <ClCompile Include="3rd_party\imGuIZMO.quat\imGuIZMOquat.cpp">
+      <Filter>Source Files\Dependencies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,46 +94,79 @@
     <QtUic Include="ui\qopengl.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="ui\left.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="x64\Debug\uic\ui\ui_qopengl.h">
+    <ClInclude Include="include\logo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="logo.h">
+    <ClInclude Include="include\uic\ui_left.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\QtImGui.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="include\uic\ui_qopengl.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\glad\glad.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\glad\glad.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imconfig.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\imgui.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imgui.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\imgui_internal.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imgui_internal.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\imstb_rectpack.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_rectpack.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\imstb_textedit.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_textedit.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\imstb_truetype.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_truetype.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\QtImGui.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_rect_pack.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\stb_rect_pack.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_textedit.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\stb_textedit.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_truetype.h">
-      <Filter>Header Files\dependencies</Filter>
+    <ClInclude Include="3rd_party\imgui\stb_truetype.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\imgui\imconfig.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\imGuIZMO.quat\vGizmo.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\imGuIZMO.quat\vGizmoMath.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\imGuIZMO.quat\vgMath.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\imGuIZMO.quat\imGuIZMOquat.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\imGuIZMO.quat\vgConfig.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\KHR\khrplatform.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\imgui_bezier.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\GLFW\glfw3.h">
+      <Filter>Header Files\Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="3rd_party\GLFW\glfw3native.h">
+      <Filter>Header Files\Dependencies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

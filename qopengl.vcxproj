@@ -39,10 +39,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(OutDir)\uic\ui;$(ProjectDir)\include;$(ProjectDir)\3rd_party;$(ProjectDir)\3rd_party\imgui;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\3rd_party\imGuIZMO.quat;$(ProjectDir)\include;$(ProjectDir)\3rd_party;$(ProjectDir)\3rd_party\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(OutDir)\uic\ui;$(ProjectDir)\include;$(ProjectDir)\3rd_party;$(ProjectDir)\3rd_party\imgui;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\3rd_party\imGuIZMO.quat;$(ProjectDir)\include;$(ProjectDir)\3rd_party;$(ProjectDir)\3rd_party\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
@@ -72,6 +72,9 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <QtUic>
+      <QtUicDir>$(ProjectDir)\include\uic</QtUicDir>
+    </QtUic>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -86,20 +89,22 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
+    <QtUic>
+      <QtUicDir>$(ProjectDir)\include\uic</QtUicDir>
+    </QtUic>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtMoc Include="include\qopengl.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\LearnOpenGL\Include\glad\glad.c" />
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui.cpp" />
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\ImGuiRenderer.cpp" />
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_demo.cpp" />
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="..\LearnOpenGL\Include\imgui\QtImGui.cpp" />
-    <ClCompile Include="glwidget.cpp" />
-    <ClCompile Include="logo.cpp" />
+    <ClCompile Include="3rd_party\glad\glad.c" />
+    <ClCompile Include="3rd_party\imGuIZMO.quat\imGuIZMOquat.cpp" />
+    <ClCompile Include="3rd_party\imgui\imgui.cpp" />
+    <ClCompile Include="3rd_party\imgui\ImGuiRenderer.cpp" />
+    <ClCompile Include="3rd_party\imgui\imgui_demo.cpp" />
+    <ClCompile Include="3rd_party\imgui\imgui_draw.cpp" />
+    <ClCompile Include="3rd_party\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="3rd_party\imgui\QtImGui.cpp" />
+    <ClCompile Include="src\glwidget.cpp" />
+    <ClCompile Include="src\left.cpp" />
+    <ClCompile Include="src\logo.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\qopengl.cpp" />
   </ItemGroup>
@@ -107,24 +112,37 @@
     <QtRcc Include="Resources\qopengl.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="ui\left.ui" />
     <QtUic Include="ui\qopengl.ui" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="glwidget.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\glad\glad.h" />
-    <QtMoc Include="..\LearnOpenGL\Include\imgui\ImGuiRenderer.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imconfig.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imgui.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imgui_internal.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_rectpack.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_textedit.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_truetype.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\QtImGui.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_rect_pack.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_textedit.h" />
-    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_truetype.h" />
-    <ClInclude Include="logo.h" />
-    <ClInclude Include="x64\Debug\uic\ui\ui_qopengl.h" />
+    <ClInclude Include="3rd_party\glad\glad.h" />
+    <ClInclude Include="3rd_party\GLFW\glfw3.h" />
+    <ClInclude Include="3rd_party\GLFW\glfw3native.h" />
+    <ClInclude Include="3rd_party\imGuIZMO.quat\imGuIZMOquat.h" />
+    <ClInclude Include="3rd_party\imGuIZMO.quat\vgConfig.h" />
+    <ClInclude Include="3rd_party\imGuIZMO.quat\vGizmo.h" />
+    <ClInclude Include="3rd_party\imGuIZMO.quat\vGizmoMath.h" />
+    <ClInclude Include="3rd_party\imGuIZMO.quat\vgMath.h" />
+    <ClInclude Include="3rd_party\imgui\imconfig.h" />
+    <ClInclude Include="3rd_party\imgui\imgui.h" />
+    <QtMoc Include="3rd_party\imgui\ImGuiRenderer.h" />
+    <ClInclude Include="3rd_party\imgui\imgui_internal.h" />
+    <ClInclude Include="3rd_party\imgui\imstb_rectpack.h" />
+    <ClInclude Include="3rd_party\imgui\imstb_textedit.h" />
+    <ClInclude Include="3rd_party\imgui\imstb_truetype.h" />
+    <ClInclude Include="3rd_party\imgui\QtImGui.h" />
+    <ClInclude Include="3rd_party\imgui\stb_rect_pack.h" />
+    <ClInclude Include="3rd_party\imgui\stb_textedit.h" />
+    <ClInclude Include="3rd_party\imgui\stb_truetype.h" />
+    <ClInclude Include="3rd_party\imgui_bezier.h" />
+    <ClInclude Include="3rd_party\KHR\khrplatform.h" />
+    <ClInclude Include="include\uic\ui_left.h" />
+    <ClInclude Include="include\uic\ui_qopengl.h" />
+    <QtMoc Include="include\left.h" />
+    <QtMoc Include="include\glwidget.h" />
+    <ClInclude Include="include\logo.h" />
+    <QtMoc Include="include\qopengl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
