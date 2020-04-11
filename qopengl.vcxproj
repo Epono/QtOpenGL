@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{50B7C287-142A-492A-96FB-7C823D49AA5E}</ProjectGuid>
+    <Keyword>QtVS_v302</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(OutDir)\uic\ui;$(ProjectDir)\include;$(ProjectDir)\3rd_party;$(ProjectDir)\3rd_party\imgui;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(OutDir)\uic\ui;$(ProjectDir)\include;$(ProjectDir)\3rd_party;$(ProjectDir)\3rd_party\imgui;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <QtMoc Include="include\qopengl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\LearnOpenGL\Include\glad\glad.c" />
+    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui.cpp" />
+    <ClCompile Include="..\LearnOpenGL\Include\imgui\ImGuiRenderer.cpp" />
+    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\LearnOpenGL\Include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\LearnOpenGL\Include\imgui\QtImGui.cpp" />
+    <ClCompile Include="glwidget.cpp" />
+    <ClCompile Include="logo.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\qopengl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Resources\qopengl.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ui\qopengl.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="glwidget.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\glad\glad.h" />
+    <QtMoc Include="..\LearnOpenGL\Include\imgui\ImGuiRenderer.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\imconfig.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\imgui.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\imgui_internal.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\imstb_truetype.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\QtImGui.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_rect_pack.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_textedit.h" />
+    <ClInclude Include="..\LearnOpenGL\Include\imgui\stb_truetype.h" />
+    <ClInclude Include="logo.h" />
+    <ClInclude Include="x64\Debug\uic\ui\ui_qopengl.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
